@@ -21,9 +21,9 @@
 
 // -------------- Решение задачи с любыми значениями
 
-// System.Console.Write("Введите первое число -> ");
+// System.Console.WriteLine("Введите первое число");
 // int num1 = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Введите второе число -> ");
+// System.Console.WriteLine("Введите второе число");
 // int num2 = Convert.ToInt32(Console.ReadLine());
 // if(num1 > num2)
 // {
@@ -43,11 +43,11 @@
 // 22 3 9 -> 22
 
 
-// System.Console.Write("Введите первое число -> ");
+// System.Console.WriteLine("Введите первое число");
 // int num1 = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Введите второе число -> ");
+// System.Console.WriteLine("Введите второе число");
 // int num2 = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Введите третье число -> ");
+// System.Console.WriteLine("Введите третье число");
 // int num3 = Convert.ToInt32(Console.ReadLine());
 
 // if(num1 > num2 && num1 > num3)
@@ -62,3 +62,23 @@
 // {
 //     System.Console.WriteLine($"максимальное число {num3}");
 // }
+
+// ------------------------------------------------------------------------------------------------
+
+
+// Задача 6: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+// 4 -> да
+// -3 -> нет
+// 7 -> нет
+
+
+System.Console.WriteLine("Введите число");
+int num = Convert.ToInt32(Console.ReadLine());
+if(num % 2 == 0)
+{
+    Console.WriteLine($"Число {num} является четным");
+}
+else
+{
+    Console.WriteLine($"Число {num} не является четным");
+}
