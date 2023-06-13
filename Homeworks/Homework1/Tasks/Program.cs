@@ -12,26 +12,26 @@
 // int b = 7;
 // if(a > b)
 // {
-//     System.Console.WriteLine($"число {a} больше числа {b}");
+//     Console.WriteLine($"число {a} больше числа {b}");
 // }
 // else
 // {
-//     System.Console.WriteLine($"число {b} больше числа {a}");
+//     Console.WriteLine($"число {b} больше числа {a}");
 // }
 
 // -------------- Решение задачи с любыми значениями
 
-// System.Console.WriteLine("Введите первое число");
+// Console.WriteLine("Введите первое число");
 // int num1 = Convert.ToInt32(Console.ReadLine());
-// System.Console.WriteLine("Введите второе число");
+// Console.WriteLine("Введите второе число");
 // int num2 = Convert.ToInt32(Console.ReadLine());
 // if(num1 > num2)
 // {
-//     System.Console.WriteLine($"число {num1} больше чем число {num2}");
+//     Console.WriteLine($"число {num1} больше чем число {num2}");
 // }
 // else
 // {
-//     System.Console.WriteLine($"число {num2} больше чем число {num1}");
+//     Console.WriteLine($"число {num2} больше чем число {num1}");
 // }
 
 // ------------------------------------------------------------------------------------------------
@@ -43,24 +43,24 @@
 // 22 3 9 -> 22
 
 
-// System.Console.WriteLine("Введите первое число");
+// Console.WriteLine("Введите первое число");
 // int num1 = Convert.ToInt32(Console.ReadLine());
-// System.Console.WriteLine("Введите второе число");
+// Console.WriteLine("Введите второе число");
 // int num2 = Convert.ToInt32(Console.ReadLine());
-// System.Console.WriteLine("Введите третье число");
+// Console.WriteLine("Введите третье число");
 // int num3 = Convert.ToInt32(Console.ReadLine());
 
 // if(num1 > num2 && num1 > num3)
 // {
-//     System.Console.WriteLine($"максимальное число {num1}");
+//     Console.WriteLine($"максимальное число {num1}");
 // }
 // if(num1 < num2 && num2 > num3)
 // {
-//     System.Console.WriteLine($"максимальное число {num2}");
+//     Console.WriteLine($"максимальное число {num2}");
 // }
 // if(num1 < num2 && num2 < num3)
 // {
-//     System.Console.WriteLine($"максимальное число {num3}");
+//     Console.WriteLine($"максимальное число {num3}");
 // }
 
 // ------------------------------------------------------------------------------------------------
@@ -72,13 +72,37 @@
 // 7 -> нет
 
 
-System.Console.WriteLine("Введите число");
-int num = Convert.ToInt32(Console.ReadLine());
-if(num % 2 == 0)
+// Console.WriteLine("Введите число");
+// int num = Convert.ToInt32(Console.ReadLine());
+// if(num % 2 == 0)
+// {
+//     Console.WriteLine($"Число {num} является четным");
+// }
+// else
+// {
+//     Console.WriteLine($"Число {num} не является четным");
+// }
+
+// ------------------------------------------------------------------------------------------------
+
+
+// Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+// 5 -> 2, 4
+// 8 -> 2, 4, 6, 8
+
+
+Console.WriteLine("Введите число");
+int n = Convert.ToInt32(Console.ReadLine());
+int count = 1;
+while(count <= n)
 {
-    Console.WriteLine($"Число {num} является четным");
-}
-else
-{
-    Console.WriteLine($"Число {num} не является четным");
+    if(count % 2 == 0)
+    {
+        Console.Write(count);
+        count++;
+    }
+    else
+    {
+        count++;
+    }    
 }
