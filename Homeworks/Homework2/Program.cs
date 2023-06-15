@@ -5,14 +5,14 @@
 
 // void SecondNum (int num)
 // {
-//     if(num >= 100 && num <= 999)
+//     if(num >= 100 && num <= 999 || num <= -100 && num >= -999)
 //     {
 //         int second = num / 10 % 10;
-//         System.Console.WriteLine($"цифра {second} является второй цифрой числа {num}");
+//         System.Console.WriteLine($"цифра {second} является второй в числе {num}");
 //     }
 //     else
 //     {
-//         Console.WriteLine("Вы ввели неправильное число");
+//         Console.WriteLine("Алло! Вы знаете что такое 'трехзначное число'?! это число от 100 до 999 включительно! Давай еще разок!");
 //     }
 
 // }
@@ -29,24 +29,27 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-void ThirdNum (int[] num)
-{
-    int Length = num.Length;
-    int index = 2;
-    if(Length - 1 >= 2)
-    {
-        System.Console.WriteLine($"цифра {num[index]} является второй цифрой числа {num}");
-    }
-    else
-    {
-        Console.WriteLine("В числе {num} третьей цифры нет");
-    }
+// void ThirdNum(int num)
+// {
+//     int fNum = num;
+//     while (num >= 1000 || num <= -1000)
+//     {
+//         num = num / 10;
+//     }
+//     if (num <= 999 && num >= 100 || num >= -999 && num <= -100)
+//     {
+//         int third = num % 10;
+//         Console.WriteLine($"в числе {fNum} третья цифра {third}");
+//     }
+//     else if (num <= 99 && num >= -99)
+//     {
+//         Console.WriteLine($"в числе {fNum} нет третьей цифры");
+//     }
+// }
+// Console.Write("Введите число -> ");
+// int num = Convert.ToInt32(Console.ReadLine());
 
-}
-Console.WriteLine("Введите трехзначное число");
-int num = Convert.ToInt32(Console.ReadLine());
-
-ThirdNum(num);
+// ThirdNum(num);
 
 // ----------------------------------------------------------------
 
@@ -70,25 +73,25 @@ ThirdNum(num);
 
 // ------ решение методом void (с обозначением дней недели)------
 
-// void WeekendNum(int num)
-// {
-//     if (num == 6)
-//     {
-//         Console.WriteLine($"Цифра {num} обозначает субботу. Суббота является выходным днем.");
-//     }
-//     else if (num == 7)
-//     {
-//         Console.WriteLine($"Цифра {num} обозначает воскресенье. Воскресенье является выходным днем.");
-//     }
-//     else if (num >= 1 && num <= 6)
-//     {
-//         Console.WriteLine($"Цифра {num} обозначает будний день и не является выходным днем.");
-//     }
-//     else
-//         Console.WriteLine($"Цифра (число) {num} не является обозначением дня недели. Повторите запрос.");
-// }
+void WeekendNum(int num)
+{
+    if (num == 6)
+    {
+        Console.WriteLine($"Цифра {num} обозначает субботу. Суббота является выходным днем.");
+    }
+    else if (num == 7)
+    {
+        Console.WriteLine($"Цифра {num} обозначает воскресенье. Воскресенье является выходным днем.");
+    }
+    else if (num >= 1 && num <= 6)
+    {
+        Console.WriteLine($"Цифра {num} обозначает будний день и не является выходным днем.");
+    }
+    else
+        Console.WriteLine($"Цифра (число) {num} не является обозначением дня недели. Повторите запрос.");
+}
 
-// System.Console.Write("Введите цифру, обозначающую день недели -> ");
-// int num = Convert.ToInt32(Console.ReadLine());
+System.Console.Write("Введите цифру, обозначающую день недели -> ");
+int num = Convert.ToInt32(Console.ReadLine());
 
-// WeekendNum(num);
+WeekendNum(num);
