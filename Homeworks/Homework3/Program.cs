@@ -4,6 +4,43 @@
 // 12821 -> да
 // 23432 -> да
 
+// Простейшее решение задачи с методом bool
+
+// bool Palindrome(int x)
+// {
+//     if (x / 10000 == x % 10 && x / 1000 % 10 == x / 10 % 10) return true;
+//     return false;
+// }
+
+// System.Console.WriteLine("Введите пятизначное число -> ");
+// int x = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine(Palindrome(x));
+
+// --------------------------------
+
+// Решение с методом void
+
+// void Palindrome(int x)
+// {
+//     if (x >= 10000 && x <= 99999 || x <= -10000 && x >= -99999)
+//     {
+//         if (x / 10000 == x % 10 && x / 1000 % 10 == x / 10 % 10)
+//         {
+//             System.Console.WriteLine($"Число {x} является палиндромом");
+//         }
+//         else
+//         {
+//             System.Console.WriteLine($"Число {x} не является палиндромом");
+//         }
+//     }
+//     else
+//     {
+//         System.Console.WriteLine($"Число (цифра) {x} не является пятизначным числом");
+//     }
+// }
+// System.Console.WriteLine("Введите пятизначное число -> ");
+// int x = Convert.ToInt32(Console.ReadLine());
+// Palindrome(x);
 
 
 // --------------------------------------------------------------------------------------------------
