@@ -48,17 +48,67 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
-int[] CreateRandomArray(int size, int minValue, int maxValue)
+// int[] CreateRandomArray(int size, int minValue, int maxValue)
+// {
+//     int[] array = new int[size];
+//     for (int i = 0; i < size; i++)
+//     {
+//         array[i] = new Random().Next(minValue, maxValue + 1);
+//     }
+//     return array;
+// }
+
+// void PrintArray(int[] array)
+// {
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         System.Console.Write(array[i] + " ");
+//     }
+//     System.Console.WriteLine();
+// }
+
+// int SumOddPos(int[] array)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (i % 2 != 0)
+//         {
+//             sum += array[i];
+//         }
+//     }
+//     return sum;
+// }
+
+// System.Console.WriteLine("Input array size: ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input minimal value of array element: ");
+// int minValue = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input maximal value of array element: ");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int[] array = CreateRandomArray(size, minValue, maxValue);
+
+// System.Console.Write($"In the array: ");
+// PrintArray(array);
+// System.Console.Write($"the sum of the elements standing in odd positions is equal to {SumOddPos(array)}");
+
+// ------------------------------------------------------------------------------------------------
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+// [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
+
+double[] CreateRandomArray(int size, int minValue, int maxValue)
 {
-    int[] array = new int[size];
+    double[] array = new double[size];
     for (int i = 0; i < size; i++)
     {
-        array[i] = new Random().Next(minValue, maxValue + 1);
+        array[i] = Convert.ToDouble(new Random().Next(minValue * 100, maxValue * 100 + 1)) / 100;
     }
     return array;
 }
 
-void PrintArray(int[] array)
+void PrintArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -67,17 +117,25 @@ void PrintArray(int[] array)
     System.Console.WriteLine();
 }
 
-int SumOddPos(int[] array)
+double DiffNum(double[] array)
 {
-    int sum = 0;
+    double minNum = array[1];
+    double maxNum = array[1];
+    double diff = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (i % 2 != 0)
+        if (array[i] < minNum)
         {
-            sum += array[i];
+            minNum = array[i];
         }
+        if (array[i] > maxNum)
+        {
+            maxNum = array[i];
+        }
+
     }
-    return sum;
+    diff = maxNum - minNum;
+    return diff;
 }
 
 System.Console.WriteLine("Input array size: ");
@@ -87,13 +145,8 @@ int minValue = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Input maximal value of array element: ");
 int maxValue = Convert.ToInt32(Console.ReadLine());
 
-int[] array = CreateRandomArray(size, minValue, maxValue);
+double[] array = CreateRandomArray(size, minValue, maxValue);
 
-System.Console.Write($"In the array: ");
+System.Console.Write($"In an array of real numbers: ");
 PrintArray(array);
-System.Console.Write($"the sum of the elements standing in odd positions is equal to {SumOddPos(array)}");
-
-// ------------------------------------------------------------------------------------------------
-
-// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-// [3.22, 4.2, 1.15, 77.15, 65.2] => 77.15 - 1.15 = 76
+System.Console.Write($"the difference between the maximum and minimum array elements is {DiffNum(array)}");
