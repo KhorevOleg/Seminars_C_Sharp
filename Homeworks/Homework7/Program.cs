@@ -106,58 +106,6 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
-// int[,] FillArray(int rows, int columns, int minValue, int maxValue)
-// {
-//     int[,] array = new int[rows, columns];
-//     for (int i = 0; i < rows; i++)
-//     {
-//         for (int j = 0; j < columns; j++)
-//         {
-//             array[i, j] = new Random().Next(minValue, maxValue + 1);
-//         }
-//     }
-//     return array;
-// }
-
-// void PrintArray(int[,] array)
-// {
-
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             System.Console.Write($"{array[i, j]} ");
-//         }
-//         System.Console.WriteLine();
-//     }
-// }
-
-// void ArithmeticMeanOfColumns(int[,] array)
-// {
-//     double sum = 0;
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//         for (int i = 0; i < array.GetLength(0); i++)
-//         {
-//             sum += array[i, j];
-//         }
-//         Console.Write($"{sum / array.GetLength(0)} ");
-//     }
-// }
-
-// Console.Write("input the number of rows in the array -> ");
-// int rows = Convert.ToInt32(Console.ReadLine());
-// Console.Write("input the number of columns in the array -> ");
-// int columns = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Input minimal value for array -> ");
-// int minValue = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Input maximal value for array -> ");
-// int maxValue = Convert.ToInt32(Console.ReadLine());
-
-// int[,] myArray = FillArray(rows, columns, minValue, maxValue);
-// PrintArray(myArray);
-// ArithmeticMeanOfColumns(myArray);
-
 int[,] FillArray(int rows, int columns, int minValue, int maxValue)
 {
     int[,] array = new int[rows, columns];
@@ -209,4 +157,5 @@ int maxValue = Convert.ToInt32(Console.ReadLine());
 
 int[,] myArray = FillArray(rows, columns, minValue, maxValue);
 PrintArray(myArray);
+System.Console.Write($"Arithmetic mean of each column: ");
 ArithmeticMeanOfColumns(myArray);
