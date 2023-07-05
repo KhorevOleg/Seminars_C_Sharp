@@ -223,51 +223,95 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-int[,,] Create3DArray(int fields, int rows, int columns, int minValue, int maxValue)
+// int[,,] Create3DArray(int fields, int rows, int columns, int minValue, int maxValue)
+// {
+//     int[,,] array = new int[fields, rows, columns];
+//     for (int i = 0; i < fields; i++)
+//     {
+//         for (int j = 0; j < rows; j++)
+//         {
+//             for (int k = 0; k < columns; k++)
+//             {
+//                 array[i, j, k] = new Random().Next(minValue, maxValue + 1);
+//             }
+//         }
+//     }
+//     return array;
+// }
+
+// void Print3DArray(int[,,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             for (int k = 0; k < array.GetLength(2); k++)
+//             {
+//                 Console.Write($"{array[i, j, k]} ({i},{j},{k}) ");
+//             }
+//             Console.WriteLine();
+//         }
+//         Console.WriteLine();
+//     }
+//     Console.WriteLine();
+// }
+
+// System.Console.WriteLine("Input number of rows: ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input number of columns: ");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input number of fields: ");
+// int fields = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input minimal value of array element: ");
+// int minValue = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input maximal value of array element: ");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int[,,] myArray = Create3DArray(rows, columns, fields, minValue, maxValue);
+// Print3DArray(myArray);
+
+// --------------------------------------------------------------------------------------------------------------------
+
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
+
+Console.Write("Input size array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
+int[,] array = new int[size, size];
+
+int num = 1;
+int i = 0;
+int j = 0;
+
+while (num <= size * size)
 {
-    int[,,] array = new int[fields, rows, columns];
-    for (int i = 0; i < fields; i++)
-    {
-        for (int j = 0; j < rows; j++)
-        {
-            for (int k = 0; k < columns; k++)
-            {
-                array[i, j, k] = new Random().Next(minValue, maxValue + 1);
-            }
-        }
-    }
-    return array;
+    array[i, j] = num;
+    if (i <= j + 1 && i + j < size - 1)
+        j++;
+    else if (i < j && i + j >= size - 1)
+        i++;
+    else if (i >= j && i + j > size - 1)
+        j--;
+    else
+        i--;
+    num++;
 }
 
-void Print3DArray(int[,,] array)
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            for (int k = 0; k < array.GetLength(2); k++)
-            {
-                Console.Write($"{array[i, j, k]} ({i},{j},{k}) ");
-            }
-            Console.WriteLine();
+            Console.Write(array[i, j] + " ");
         }
-        Console.WriteLine();
+        System.Console.WriteLine();
     }
-    Console.WriteLine();
 }
 
-System.Console.WriteLine("Input number of rows: ");
-int rows = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input number of columns: ");
-int columns = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input number of fields: ");
-int fields = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input minimal value of array element: ");
-int minValue = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input maximal value of array element: ");
-int maxValue = Convert.ToInt32(Console.ReadLine());
-
-int[,,] myArray = Create3DArray(rows, columns, fields, minValue, maxValue);
-Print3DArray(myArray);
-
-
+PrintArray(array);
