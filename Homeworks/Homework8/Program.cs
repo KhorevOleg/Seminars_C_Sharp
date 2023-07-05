@@ -153,65 +153,121 @@
 // 18 20
 // 15 18
 
+// System.Console.WriteLine("Input number of rows: ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input number of columns: ");
+// int columns = Convert.ToInt32(Console.ReadLine());
+
+// int[,] array = new int[rows, columns];
+// int[,] arraySecond = new int[rows, columns];
+// int[,] resultArray = new int[rows, columns];
+
+// Create2DArray(array);
+// Print2DArray(array);
+// System.Console.WriteLine();
+
+// Create2DArray(arraySecond);
+// Print2DArray(arraySecond);
+// System.Console.WriteLine();
+
+// if (array.GetLength(0) != arraySecond.GetLength(1))
+// {
+//     System.Console.Write($"The number of columns ({array.GetLength(0)}) of the first matrix is not equal to the number of rows");
+//     System.Console.Write($" ({arraySecond.GetLength(1)}) of the second matrix. It is impossible to multiply.");
+//     return;
+// }
+// else
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < arraySecond.GetLength(1); j++)
+//         {
+//             resultArray[i, j] = 0;
+//             for (int k = 0; k < array.GetLength(1); k++)
+//             {
+//                 resultArray[i, j] += array[i, k] * arraySecond[k, j];
+//             }
+//         }
+//     }
+
+//     void Create2DArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(1, 10);
+//         }
+//     }
+// }
+
+// void Print2DArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Print2DArray(resultArray);
+
+// --------------------------------------------------------------------------------------------------------------------
+
+// Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+
+int[,,] Create3DArray(int fields, int rows, int columns, int minValue, int maxValue)
+{
+    int[,,] array = new int[fields, rows, columns];
+    for (int i = 0; i < fields; i++)
+    {
+        for (int j = 0; j < rows; j++)
+        {
+            for (int k = 0; k < columns; k++)
+            {
+                array[i, j, k] = new Random().Next(minValue, maxValue + 1);
+            }
+        }
+    }
+    return array;
+}
+
+void Print3DArray(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                Console.Write($"{array[i, j, k]} ({i},{j},{k}) ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
 System.Console.WriteLine("Input number of rows: ");
 int rows = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Input number of columns: ");
 int columns = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Input number of fields: ");
+int fields = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Input minimal value of array element: ");
+int minValue = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Input maximal value of array element: ");
+int maxValue = Convert.ToInt32(Console.ReadLine());
 
-int[,] array = new int[rows, columns];
-int[,] arraySecond = new int[rows, columns];
-int[,] resultArray = new int[rows, columns];
-
-Create2DArray(array);
-Print2DArray(array);
-System.Console.WriteLine();
-
-Create2DArray(arraySecond);
-Print2DArray(arraySecond);
-System.Console.WriteLine();
-
-if (array.GetLength(0) != arraySecond.GetLength(1))
-{
-    System.Console.Write($"The number of columns ({array.GetLength(0)}) of the first matrix is not equal to the number of rows");
-    System.Console.Write($" ({arraySecond.GetLength(1)}) of the second matrix. It is impossible to multiply.");
-    return;
-}
-else
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < arraySecond.GetLength(1); j++)
-        {
-            resultArray[i, j] = 0;
-            for (int k = 0; k < array.GetLength(1); k++)
-            {
-                resultArray[i, j] += array[i, k] * arraySecond[k, j];
-            }
-        }
-    }
-
-    void Create2DArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(1, 10);
-        }
-    }
-}
-
-void Print2DArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-}
-
-Print2DArray(resultArray);
+int[,,] myArray = Create3DArray(rows, columns, fields, minValue, maxValue);
+Print3DArray(myArray);
 
 
