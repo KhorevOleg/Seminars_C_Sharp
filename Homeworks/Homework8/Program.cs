@@ -77,17 +77,127 @@
 // 5 2 6 7
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-int[,] Create2DArray(int rows, int columns, int minValue, int maxValue)
+// int[,] Create2DArray(int rows, int columns, int minValue, int maxValue)
+// {
+//     int[,] array = new int[rows, columns];
+//     for (int i = 0; i < rows; i++)
+//     {
+//         for (int j = 0; j < columns; j++)
+//         {
+//             array[i, j] = new Random().Next(minValue, maxValue + 1);
+//         }
+//     }
+//     return array;
+// }
+
+// void Print2DArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         Console.WriteLine();
+//     }
+//     Console.WriteLine();
+// }
+
+// int SumLineElements(int[,] array, int i)
+// {
+//     int sumLine = array[i, 0];
+//     for (int j = 1; j < array.GetLength(1); j++)
+//     {
+//         sumLine += array[i, j];
+//     }
+//     return sumLine;
+// }
+
+// void RowMinSumColumn(int[,] array)
+// {
+//     int minSumLine = 0;
+//     int sumLine = SumLineElements(array, 0);
+//     for (int i = 1; i < array.GetLength(0); i++)
+//     {
+//         int tempSumLine = SumLineElements(array, i);
+//         if (sumLine > tempSumLine)
+//         {
+//             sumLine = tempSumLine;
+//             minSumLine = i;
+//         }
+//     }
+//     System.Console.WriteLine($"{minSumLine + 1} - the row with the smallest sum of elements ({sumLine}).");
+// }
+
+// System.Console.WriteLine("Input number of rows: ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input number of columns: ");
+// int columns = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input minimal value of array element: ");
+// int minValue = Convert.ToInt32(Console.ReadLine());
+// System.Console.WriteLine("Input maximal value of array element: ");
+// int maxValue = Convert.ToInt32(Console.ReadLine());
+
+// int[,] myArray = Create2DArray(rows, columns, minValue, maxValue);
+// Print2DArray(myArray);
+
+// RowMinSumColumn(myArray);
+
+// --------------------------------------------------------------------------------------------------------------------
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+System.Console.WriteLine("Input number of rows: ");
+int rows = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Input number of columns: ");
+int columns = Convert.ToInt32(Console.ReadLine());
+
+int[,] array = new int[rows, columns];
+int[,] arraySecond = new int[rows, columns];
+int[,] resultArray = new int[rows, columns];
+
+Create2DArray(array);
+Print2DArray(array);
+System.Console.WriteLine();
+
+Create2DArray(arraySecond);
+Print2DArray(arraySecond);
+System.Console.WriteLine();
+
+if (array.GetLength(0) != arraySecond.GetLength(1))
 {
-    int[,] array = new int[rows, columns];
-    for (int i = 0; i < rows; i++)
+    System.Console.Write($"The number of columns ({array.GetLength(0)}) of the first matrix is not equal to the number of rows");
+    System.Console.Write($" ({arraySecond.GetLength(1)}) of the second matrix. It is impossible to multiply.");
+    return;
+}
+else
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < columns; j++)
+        for (int j = 0; j < arraySecond.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(minValue, maxValue + 1);
+            resultArray[i, j] = 0;
+            for (int k = 0; k < array.GetLength(1); k++)
+            {
+                resultArray[i, j] += array[i, k] * arraySecond[k, j];
+            }
         }
     }
-    return array;
+
+    void Create2DArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, 10);
+        }
+    }
 }
 
 void Print2DArray(int[,] array)
@@ -100,47 +210,8 @@ void Print2DArray(int[,] array)
         }
         Console.WriteLine();
     }
-    Console.WriteLine();
 }
 
-int SumLineElements(int[,] array, int i)
-{
-    int sumLine = array[i, 0];
-    for (int j = 1; j < array.GetLength(1); j++)
-    {
-        sumLine += array[i, j];
-    }
-    return sumLine;
-}
-
-void RowMinSumColumn(int[,] array)
-{
-    int minSumLine = 0;
-    int sumLine = SumLineElements(array, 0);
-    for (int i = 1; i < array.GetLength(0); i++)
-    {
-        int tempSumLine = SumLineElements(array, i);
-        if (sumLine > tempSumLine)
-        {
-            sumLine = tempSumLine;
-            minSumLine = i;
-        }
-    }
-    System.Console.WriteLine($"{minSumLine + 1} - the row with the smallest sum of elements ({sumLine}).");
-}
-
-System.Console.WriteLine("Input number of rows: ");
-int rows = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input number of columns: ");
-int columns = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input minimal value of array element: ");
-int minValue = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Input maximal value of array element: ");
-int maxValue = Convert.ToInt32(Console.ReadLine());
-
-int[,] myArray = Create2DArray(rows, columns, minValue, maxValue);
-Print2DArray(myArray);
-
-RowMinSumColumn(myArray);
+Print2DArray(resultArray);
 
 
